@@ -1,0 +1,14 @@
+*.o
+moc_*
+ui_*
+.tmp
+mndc
+*~
+*swp
+Makefile
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+mndc_automoc.cpp
+
+build
