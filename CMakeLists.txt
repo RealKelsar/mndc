@@ -8,22 +8,24 @@ find_package(Qt5Widgets REQUIRED)
 # Find the QtNetwork library
 find_package(Qt5Network REQUIRED)
 
+set(mndc_srcdir src/)
+
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Instruct CMake to run moc automatically when needed.
 set(CMAKE_AUTOMOC ON)
 
 set(mndc_SOURCES
-	main.cpp
-	mainwindow.cpp
-	mainwindow.h
-	preferences.cpp
-	preferences.h
+	${mndc_srcdir}main.cpp
+	${mndc_srcdir}mainwindow.cpp
+	${mndc_srcdir}mainwindow.h
+	${mndc_srcdir}preferences.cpp
+	${mndc_srcdir}preferences.h
 	)
 
 set(mndc_UI
-	ui/mainwindow.ui
-	ui/preferences.ui
+	${mndc_srcdir}ui/mainwindow.ui
+	${mndc_srcdir}ui/preferences.ui
 	)
 
 qt5_wrap_ui(mndc_UI_SOURCES ${mndc_UI})
