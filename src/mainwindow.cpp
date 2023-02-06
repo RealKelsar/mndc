@@ -432,10 +432,10 @@ void MainWindow::startExternalCommand( QString cmd, QStringList args)
 
 void MainWindow::updateOutput()
 {
-    out.append( QString::fromLocal8Bit(worker->readAll()));
+    out.append( QString::fromLocal8Bit(worker->readAll()).toUtf8());
     
     if (this->runningAction == "ping" || this->runningAction == "ping6") kill(worker->processId(), SIGQUIT);
-    out.append( QString::fromLocal8Bit(worker->readAllStandardError()));
+    out.append( QString::fromLocal8Bit(worker->readAllStandardError()).toUtf8());
 
     QString formatted = (QString)out;
     formatted = markupOutput( formatted, QRegExp(QString("\\b((\\w|\\w+[-\\w]*\\w+)\\.)+([A-Za-z]{2,26})\\b")), QString("hostname"), QString("<a href='%PLACEHOLDER%'>"), QString("</a>"), 0);
@@ -459,7 +459,7 @@ void MainWindow::updateOutputBrowser(QNetworkReply* reply)
     ui->Output->clear();
     if (reply->error() > QNetworkReply::NoError)
     {
-        out.append( reply->errorString()+"\n");
+        out.append( (reply->errorString()+"\n").toUtf8());
     }
     out.append( reply->readAll() );
 
@@ -510,7 +510,7 @@ void MainWindow::buttonPressed()
     {
         //Todo: implement Action Specific stops
 #ifndef WINDOWS
-        kill( worker->pid(), SIGINT);
+        kill( worker->processId(), SIGINT);
         sleep( 1);
 #endif
         worker->terminate();
