@@ -50,18 +50,18 @@ MainWindow::MainWindow(QWidget *parent)
     maxAuthTries = settings->value("auth/maxAuthTries", 3).toInt();
 
     //Setting Up config
-    config.insert("path/traceroute",  settings->value( "path/traceroute",  "/usr/bin/traceroute").toString());
-    config.insert("path/ping",        settings->value( "path/ping",        "/bin/ping").toString());
-    config.insert("path/ping6",       settings->value( "path/ping6",       "/bin/ping6").toString());
-    config.insert("path/whois",       settings->value( "path/whois",       "/usr/bin/whois").toString());
-    config.insert("path/dig",         settings->value( "path/dig",         "/usr/bin/dig").toString());
-    config.insert("path/ssh",         settings->value( "path/ssh",         "/usr/bin/ssh").toString());
-    config.insert("path/nmap",        settings->value( "path/nmap",        "/usr/bin/nmap").toString());
-    config.insert("path/sudo",        settings->value( "path/sudo",        "/usr/bin/sudo").toString());
+    config.insert("path/traceroute",  settings->value( "path/traceroute",  "traceroute").toString());
+    config.insert("path/ping",        settings->value( "path/ping",        "ping").toString());
+    config.insert("path/ping6",       settings->value( "path/ping6",       "ping6").toString());
+    config.insert("path/whois",       settings->value( "path/whois",       "whois").toString());
+    config.insert("path/dig",         settings->value( "path/dig",         "dig").toString());
+    config.insert("path/ssh",         settings->value( "path/ssh",         "ssh").toString());
+    config.insert("path/nmap",        settings->value( "path/nmap",        "nmap").toString());
+    config.insert("path/sudo",        settings->value( "path/sudo",        "sudo").toString());
 
     config.insert("options/traceroute",  settings->value( "options/traceroute",  "").toString());
-    config.insert("options/ping",        settings->value( "options/ping",        "").toString());
-    config.insert("options/ping6",       settings->value( "options/ping6",       "").toString());
+    config.insert("options/ping",        settings->value( "options/ping",        "-4").toString());
+    config.insert("options/ping6",       settings->value( "options/ping6",       "-6").toString());
     config.insert("options/whois",       settings->value( "options/whois",       "").toString());
     config.insert("options/dig",         settings->value( "options/dig",         "").toString());
     config.insert("options/ssh",         settings->value( "options/ssh",         "").toString());
