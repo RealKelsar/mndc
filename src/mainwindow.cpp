@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent)
     //Setting Up config
     config.insert("path/traceroute",  settings->value( "path/traceroute",  "traceroute").toString());
     config.insert("path/ping",        settings->value( "path/ping",        "ping").toString());
-    config.insert("path/ping6",       settings->value( "path/ping6",       "ping6").toString());
+    config.insert("path/ping6",       settings->value( "path/ping6",       "ping").toString());
     config.insert("path/whois",       settings->value( "path/whois",       "whois").toString());
     config.insert("path/dig",         settings->value( "path/dig",         "dig").toString());
     config.insert("path/ssh",         settings->value( "path/ssh",         "ssh").toString());
